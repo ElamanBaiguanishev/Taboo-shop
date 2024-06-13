@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taboo</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/info1.css" />
+    <link rel="stylesheet" href="styles/info2.css" />
+    <link rel="stylesheet" href="styles/info3.css" />
+    <link rel="stylesheet" href="styles/info4.css" />
+    <link rel="stylesheet" href="styles/slider.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/blog/styles.css" />
+    <script src="scripts/script.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="top-bar">
+                <div class="logo">
+                    <a href="index.html" class="logo">
+                        <img class="logo_img" src="assets\logo.svg" alt="Логотип">
+                    </a>
+                </div>
+                <div class="menu">
+                    <nav>
+                        <ul class="nav__wrapper">
+                            <li class="nav__item"><a href="index.html">ГЛАВНАЯ</a></li>
+                            <li class="nav__item"><a href="services.html">УСЛУГИ</a></li>
+                            <li class="nav__item"><a href="blog.html">БЛОГ</a></li>
+                            <li class="nav__item"><a href="contacts.html">КОНТАКТЫ</a></li>
+                            <li class="nav__item"><a href="barbers.html">БАРБЕРЫ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="geo">
+                    <img src="assets/geo.svg" alt="">
+                    <p><a href="index.html#geolocation">ПЕТРОПАВЛОВСК</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="blog-info-background">
+            <div class="blog-info">
+                <div class="test">
+                    <div class="blog-info-text1">БЛОГ TABOO BARBERSHOP</div>
+                    <div class="blog-info-text2">ПОСЛЕДНИЕ НОВОСТИ И АКТУАЛЬНАЯ ИНФОРМАЦИЯ ИЗ МИРА МУЖСКИХ СТРИЖЕК</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="blog-youtube">
+            <div class="blog-youtube-text">НАШЕ ВИДЕО</div>
+            <img src="assets/video-play.svg" alt="">
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="videoContainer"></div>
+
+        <script>
+            fetch('display_video_form.php')
+                .then(response => response.text())
+                .then(data => {
+                    // Вставка HTML-кода формы в контейнер
+                    document.getElementById('videoContainer').innerHTML = data;
+                })
+                .catch(error => console.error('Ошибка:', error));
+        </script>
+
+    </div>
+
+    <div class="container">
+        <div class="articles">
+            <div class="articles-text">НОВОСТИ</div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div id="newsContainer"></div>
+
+        <script>
+            fetch('display_news_form.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('newsContainer').innerHTML = data;
+                })
+                .catch(error => console.error('Ошибка:', error));
+        </script>
+
+        <!-- <div class="blog-videos">
+            <div id="news1" class="blog-news">
+                <div id="vk_post_-225361550_16"></div>
+                <script type="text/javascript" src="https://vk.com/js/api/openapi.js?171"></script>
+                <script type="text/javascript">
+                    (function () {
+                        VK.Widgets.Post("vk_post_-225361550_16", -225361550, 16, '_DGv9FR_aUszQjslBDNalr8bsoZR');
+                    }());
+                </script>
+            </div>
+            <div id="news2" class="blog-news">
+                <div id="vk_post_-224192514_47"></div>
+                <script type="text/javascript" src="https://vk.com/js/api/openapi.js?171"></script>
+                <script type="text/javascript">
+                    (function () {
+                        VK.Widgets.Post("vk_post_-224192514_47", -224192514, 47, 'jZJT32clMExUQxRNNq1E3wYjGuuG');
+                    }());
+                </script>
+            </div>
+            <div id="news3" class="blog-news">
+                <div id="vk_post_-211372243_678"></div>
+                <script type="text/javascript" src="https://vk.com/js/api/openapi.js?171"></script>
+                <script type="text/javascript">
+                    (function () {
+                        VK.Widgets.Post("vk_post_-211372243_678", -211372243, 678, '7ZRjfxZTKn1Mv5yj_MhOYO0_Y1ql');
+                    }());
+                </script>
+            </div>
+        </div> -->
+    </div>
+
+    <div class="container">
+        <div class="button-bot">
+            <button class="button-news" onclick="window.location.href='https:/www.vk.com'">
+                БОЛЬШЕ НОВОСТЕЙ
+            </button>
+        </div>
+    </div>
+
+    <footer class="container">
+        <div class="footer-background">
+            <div class="footer-info1">
+                <img src="assets/logo.svg" alt="">
+                <div class="footer-info1-text">
+                    <a href="">VKONTAKTE</a>
+                    <a href="">INSTAGRAM</a>
+                    <a href="">WHATS APP</a>
+                </div>
+            </div>
+        </div>
+        <div class="author">Авторские права ⓒ 2024, TABOO BARBERSHOP. Все права защищены Сайт CodeWaveIn</div>
+    </footer>
+
+    <script src="scripts\script.js"></script>
+</body>
+
+</html>

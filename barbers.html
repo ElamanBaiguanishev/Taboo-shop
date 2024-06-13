@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taboo</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/info1.css" />
+    <link rel="stylesheet" href="styles/info2.css" />
+    <link rel="stylesheet" href="styles/info3.css" />
+    <link rel="stylesheet" href="styles/info4.css" />
+    <link rel="stylesheet" href="styles/slider.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/barbers/styles.css" />
+    <link rel="stylesheet" href="styles/blog/styles.css" />
+    <script src="scripts/script.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="top-bar">
+                <div class="logo">
+                    <a href="index.html" class="logo">
+                        <img class="logo_img" src="assets\logo.svg" alt="Логотип">
+                    </a>
+                </div>
+                <div class="menu">
+                    <nav>
+                        <ul class="nav__wrapper">
+                            <li class="nav__item"><a href="index.html">ГЛАВНАЯ</a></li>
+                            <li class="nav__item"><a href="services.html">УСЛУГИ</a></li>
+                            <li class="nav__item"><a href="blog.html">БЛОГ</a></li>
+                            <li class="nav__item"><a href="contacts.html">КОНТАКТЫ</a></li>
+                            <li class="nav__item"><a href="barbers.html">БАРБЕРЫ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="geo">
+                    <img src="assets/geo.svg" alt="">
+                    <p><a href="index.html#geolocation">ПЕТРОПАВЛОВСК</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="barbers-info-background">
+            <div class="barbers-info">
+                <div class="info-text1">
+                    <div style="font-size: 50px;">БАРБЕРЫ <br>TABOO BARBERSHOP</div>
+                    <img src="assets\svg.svg" alt="">
+                    <div style="text-transform: uppercase;">Наша семья квалифицированных и опытных барберов,
+                        объединенных общей страстью к искусству мужского стиля</div>
+                    <div style="text-transform: uppercase; ">В нашем барбершопе вы встретите топ и премиум мастеров,
+                        готовых преобразить ваш внешний вид в точном соответствии с вашими желаниями и требованиями.
+                    </div>
+                    <div style="text-transform: uppercase; ">Доверьтесь нам, и мы сделаем вашу визуальную концепцию
+                        реальностью.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="barbers-text">BARBERS</div>
+    </div>
+    
+    <div class="container">
+        <div class="barber-icons" id="barbers-id">
+
+        </div>
+    </div>
+
+    <script>
+        // Загрузка формы из PHP-скрипта с помощью fetch
+        fetch('display_barber_form.php')
+            .then(response => response.text())
+            .then(data => {
+                // Вставка HTML-кода формы в контейнер
+                document.getElementById('barbers-id').innerHTML = data;
+            })
+            .catch(error => console.error('Ошибка:', error));
+    </script>
+
+    <footer class="container">
+        <div class="footer-background">
+            <div class="footer-info1">
+                <img src="assets/logo.svg" alt="">
+
+                <div class="footer-info1-text">
+                    <a href="">VKONTAKTE</a>
+                    <a href="">INSTAGRAM</a>
+                    <a href="">WHATS APP</a>
+                </div>
+            </div>
+        </div>
+        <div class="author">Авторские права ⓒ 2024, TABOO BARBERSHOP. Все права защищены Сайт CodeWaveIn</div>
+    </footer>
+
+    <script src="scripts\script.js"></script>
+</body>
+
+</html>

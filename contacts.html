@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taboo</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/info1.css" />
+    <link rel="stylesheet" href="styles/info2.css" />
+    <link rel="stylesheet" href="styles/info3.css" />
+    <link rel="stylesheet" href="styles/info4.css" />
+    <link rel="stylesheet" href="styles/slider.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/contacts/styles.css" />
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="top-bar">
+                <div class="logo">
+                    <a href="index.html" class="logo">
+                        <img class="logo_img" src="assets\logo.svg" alt="Логотип">
+                    </a>
+                </div>
+                <div class="menu">
+                    <nav>
+                        <ul class="nav__wrapper">
+                            <li class="nav__item"><a href="index.html">ГЛАВНАЯ</a></li>
+                            <li class="nav__item"><a href="services.html">УСЛУГИ</a></li>
+                            <li class="nav__item"><a href="blog.html">БЛОГ</a></li>
+                            <li class="nav__item"><a href="contacts.html">КОНТАКТЫ</a></li>
+                            <li class="nav__item"><a href="barbers.html">БАРБЕРЫ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="geo">
+                    <img src="assets/geo.svg" alt="">
+                    <p><a href="#geolocation">ПЕТРОПАВЛОВСК</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="contacts-info-background">
+            <div class="info">
+                <div class="info-text1">
+                    <div style="font-size: 45px;">TABOO BARBERSHOP</div>
+                    <img src="assets\svg.svg" alt="">
+                    <div style="text-transform: uppercase;">КОНТАКТНАЯ ИНФОРМАЦИЯ</div>
+                </div>
+
+                <div>
+                    <button onclick="window.location.href='contacts.html#bookingForm'" class="button-sign-now">
+                        ЗАПИСАТЬСЯ СЕЙЧАС
+                    </button>
+                </div>
+
+                <div class="info-text2">
+                    <div class="button-play">
+                        <img class="button-play-1" src="assets/button-play.svg" alt="">
+                        <button class="button-play-overlay" onclick="window.location.href='index.html#sliderId'"><img
+                                class="button-play-2" src="assets/button-play-center.svg" alt=""></button>
+                    </div>
+
+                    <div style="width: 0;height: 60px;border-left: 1px solid white;"></div>
+                    <div>
+                        <span>Ознакомиться <br>с работами <br>наших барберов</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="chair-background">
+            <div class="contacts-form">
+                <div>
+                    <h2>ЗАПИСАТЬСЯ</h2>
+                    <img src="assets/contacts-arrow.svg" alt="">
+                    <p>Мы рекомендуем записываться заранее, чтобы <br>гарантировать наилучшее обслуживание и удобное
+                        время
+                        для вас.</p>
+                </div>
+                <div class="contacts-form-send">
+                    <form id="bookingForm">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="text" placeholder="Ваше Имя" name="name">
+                                </td>
+                                <td>
+                                    <select name="type_service">
+                                        <option value="КЛАССИЧЕСКАЯ СТРИЖКА">КЛАССИЧЕСКАЯ СТРИЖКА</option>
+                                        <option value="СТРИЖКА МАШИНКОЙ">СТРИЖКА МАШИНКОЙ</option>
+                                        <option value="БРИТЬЁ ГОЛОВЫ">БРИТЬЁ ГОЛОВЫ</option>
+                                        <option value="ОФОРМЛЕНИЕ БОРОДЫ">ОФОРМЛЕНИЕ БОРОДЫ</option>
+                                        <option value="БРИТЬЁ ЛИЦА">БРИТЬЁ ЛИЦА</option>
+                                        <option value="ОФОРМЛЕНИЕ УСОВ">ОФОРМЛЕНИЕ УСОВ</option>
+                                        <option value="ЭПИЛЯЦИЯ ВОСКОМ: 1 ЗОНА">ЭПИЛЯЦИЯ ВОСКОМ: 1 ЗОНА</option>
+                                        <option value="КАМУФЛЯЖ СЕДЫХ ВОЛОС">КАМУФЛЯЖ СЕДЫХ ВОЛОС</option>
+                                        <option value="УХОД ЗА ЛИЦОМ">УХОД ЗА ЛИЦОМ</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" name="phone_number" placeholder="НОМЕР ТЕЛЕФОНА">
+                                </td>
+                                <td>
+                                    <input type="date" name="date" placeholder="ВЫБЕРИТЕ ДАТУ">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><textarea name="comment" rows="4"
+                                        placeholder="Оставьте комментарий"></textarea></td>
+                            </tr>
+                        </table>
+
+                        <button type="button" class="contacts-send-button" id="submitBooking">Записаться</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submitBooking').addEventListener('click', function () {
+            var formData = new FormData(document.getElementById('bookingForm'));
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'process_booking.php', true);
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 400) {
+                    // Обработка успешного ответа от сервера
+                    alert(xhr.responseText);
+                } else {
+                    console.error('Ошибка при отправке запроса');
+                }
+            };
+            xhr.onerror = function () {
+                console.error('Ошибка при отправке запроса');
+            };
+            xhr.send(formData);
+        });
+    </script>
+
+    <div class="container">
+        <div class="contacts-text" style="font-size: 40px;font-weight: 650;">Часы работы</div>
+    </div>
+
+    <div class="container">
+        <div class="contacts-text" style="font-size: 25px;font-weight: 600;"><span style="color: #D98B56;">Наш
+                номер</span> +7 (705) 000-00-00 </div>
+    </div>
+
+    <div class="container">
+        <div class="weeks">
+            <div class="week">
+                <div class="week-name">ПН</div>
+                <div class="week_time">10:00 AM - 20:00 PM</div>
+            </div>
+            <div class="week">
+                <div class="week-name">ВТ</div>
+                <div class="week_time">10:00 AM - 20:00 PM</div>
+            </div>
+            <div class="week">
+                <div class="week-name">СР</div>
+                <div class="week_time">10:00 AM - 20:00 PM</div>
+            </div>
+            <div class="week">
+                <div class="week-name">ЧТ</div>
+                <div class="week_time">10:00 AM - 20:00 PM</div>
+            </div>
+            <div class="week">
+                <div class="week-name">ПТ</div>
+                <div class="week_time">10:00 AM - 20:00 PM</div>
+            </div>
+            <div class="week">
+                <div class="week-name" style="color: #D98B56;">СБ</div>
+                <div class="week_time">10:00 AM - 20:00 PM</div>
+            </div>
+            <div class="week">
+                <div class="week-name" style="color: #D98B56;">ВС</div>
+                <div class="week_time">10:00 AM - 20:00 PM</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="contacts-text" style="font-size: 25px;font-weight: 600;padding-bottom: 5%;"><span
+                style="color: #D98B56;">Первая</span>
+            онлайн запись <span style="color: #D98B56;">скидка 20%</span></div>
+    </div>
+
+    <div class="container">
+        <div class="map" id="geolocation">
+            <div>НАШЕ МЕСТОПОЛОЖЕНИЕ</div>
+            <iframe
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa82678348381077c6bf8278daf67cf7025dc445be1a0148ebfbbee06d1a80a8f&amp;source=constructor"
+                width="100%" height="309" frameborder="0">
+            </iframe>
+        </div>
+    </div>
+
+    <footer class="container">
+        <div class="footer-background">
+            <div class="footer-info1">
+                <img src="assets/logo.svg" alt="">
+
+                <div class="footer-info1-text">
+                    <a href="">VKONTAKTE</a>
+                    <a href="">INSTAGRAM</a>
+                    <a href="">WHATS APP</a>
+                </div>
+            </div>
+        </div>
+        <div class="author">Авторские права ⓒ 2024, TABOO BARBERSHOP. Все права защищены Сайт CodeWaveIn</div>
+    </footer>
+
+    <script src="scripts\script.js"></script>
+</body>
+
+</html>

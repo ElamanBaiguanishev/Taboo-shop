@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.info-3 {
+    justify-content: space-around;
+    display: flex;
+    align-items: flex-end;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 5%;
+}
+
+.info3-block {
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    width: 300px;
+    text-align: center;
+    color: #D69365;
+}
+
+.info3-block img{
+    margin: 30px;
+}

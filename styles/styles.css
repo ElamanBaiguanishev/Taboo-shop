@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Kelly Slab');
+
+body {
+    font-family: 'Kelly Slab', sans-serif;
+    background-color: #000000;
+    /* max-width: 1900px;
+    min-width: 1200px; */
+    /* display: flex;
+    flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    /* display: contents; */
+    /* width: 100%;
+    margin: auto;
+    height: 100%; */
+    margin: auto;
+    color: white;
+    min-width: 1200px;
+    /* max-width: 1920px; */
+}
+
+@media only screen and (min-width: 2000px) {
+    .container {
+        width: 40%;
+    }
+}
+
+/* @media only screen and (min-width: 1200px) {
+    .container {
+        width: 100%;
+    }
+} */
